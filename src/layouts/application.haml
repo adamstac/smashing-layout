@@ -1,8 +1,11 @@
 !!!
 %html
   %head
-    = partial("shared/head")
-  %body{:id => body_id, :class => body_class}
+    %title Smashing Layout
+    = stylesheets :site
+    %script{:type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"}
+    = javascripts('application')
+  %body
     #header
       .max_width
         .min_width
