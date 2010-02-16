@@ -1,0 +1,80 @@
+// Links
+a
+  color: #006ac4
+  text-decoration: none
+  &:hover
+    color: #000
+    text-decoration: underline
+  &:focus, &:active
+    outline: none
+
+=header
+  position: fixed
+  background: rgba(255,255,255,.85)
+  border-top: 3px solid #000
+  border-bottom: 1px solid #ccc
+  padding: 20px 0
+  z-index: 20
+  h1
+    color: #ccc
+    font-size: 20px
+    font-weight: normal
+    &:hover
+      color: #b3b3b3
+      a
+        border-bottom: 2px solid #000
+      & > span a
+        color: #aaa
+        border-color: #aaa
+        &:hover
+          color: #777
+          border-color: #777
+    a
+      color: #000
+      text-decoration: none
+      text-transform: capitalize
+    & > span
+      margin-left: 15px
+      a
+        color: #ccc
+    .service_mark
+      font-size: 14px
+      position: relative
+      top: -6px
+      left: 1px
+
+=body
+  padding: 40px 0
+  padding-top: 110px
+  .max_width
+  .min_width
+  .column
+    &#primary
+      .content
+        padding-right: 5%
+      h1
+        font-size: 40px
+        font-weight: bold
+        line-height: 40px
+        letter-spacing: -1px
+        margin-bottom: 50px
+      p
+        font-size: 16px
+        line-height: 1.5
+        margin-bottom: 20px
+    &#secondary
+      h2
+        font-size: 20px
+        margin-bottom: 20px
+      p
+        font-size: 14px
+        line-height: 1.8
+        margin-bottom: 18px
+        padding-right: 10%
+
+=footer
+  background: #f4f4f4
+  border-top: 2px solid #ddd
+  font-size: 12px
+  height: 120px
+  padding: 40px 0

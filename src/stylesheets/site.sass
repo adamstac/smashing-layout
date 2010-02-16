@@ -1,19 +1,17 @@
-@import base.sass
+@import base
 
 body
-  padding: 20px
+  +font-sans
 
-h1
-  font-size: 18px
-  font-weight: bold
-  margin-bottom: 20px
-p
-  margin-bottom: 10px
-  code
-    background: #f8f8ff
-    border: 1px solid #cacaca
-    color: #333
-    font:
-      family: Monaco, "Courier New"
-      size: 13px
-    padding: 1px 2px
+#header, #footer
+  +smashing_width
+
+#header
+  +header
+
+#body
+  +smashing_layout("right")
+  +body
+
+#footer
+  +footer

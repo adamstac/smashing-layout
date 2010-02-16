@@ -1,6 +1,22 @@
 !!!
 %html
   %head
-    = partial('shared/head')
+    = partial("shared/head")
   %body{:id => body_id, :class => body_class}
-    = yield
+    #header
+      .max_width
+        .min_width
+          = partial("shared/header")
+
+    #body
+      .max_width
+        .min_width
+          .padding
+            #primary.column
+              = partial("shared/primary")
+            #secondary.column
+              = partial("shared/secondary")
+    #footer
+      .max_width
+        .min_width
+          = partial("shared/footer")
