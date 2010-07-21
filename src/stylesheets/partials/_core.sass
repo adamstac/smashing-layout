@@ -3,40 +3,40 @@ a
   color: #006ac4
   text-decoration: none
   &:hover
-    color: #000
+    color: black
     text-decoration: underline
   &:focus, &:active
     outline: none
 
 =header
   position: fixed
-  background: rgba(255,255,255,.85)
-  border-top: 3px solid #000
-  border-bottom: 1px solid #ccc
+  background: rgba(255, 255, 255, 0.85)
+  border-top: 3px solid black
+  border-bottom: 1px solid #cccccc
   padding: 20px 0
   z-index: 20
   h1
-    color: #ccc
+    color: #cccccc
     font-size: 20px
     font-weight: normal
     &:hover
       color: #b3b3b3
       a
-        border-bottom: 2px solid #000
+        border-bottom: 2px solid black
       & > span a
-        color: #aaa
-        border-color: #aaa
+        color: #aaaaaa
+        border-color: #aaaaaa
         &:hover
-          color: #777
-          border-color: #777
+          color: #777777
+          border-color: #777777
     a
-      color: #000
+      color: black
       text-decoration: none
       text-transform: capitalize
     & > span
       margin-left: 15px
       a
-        color: #ccc
+        color: #cccccc
     .service_mark
       font-size: 14px
       position: relative
@@ -47,7 +47,9 @@ a
   padding: 40px 0
   padding-top: 110px
   .max_width
+    // Stubbed out for future useage. Use as needed
   .min_width
+    // Stubbed out for future useage. Use as needed
   .column
     &#primary
       .content
@@ -74,7 +76,7 @@ a
 
 =footer
   background: #f4f4f4
-  border-top: 1px solid #ccc
+  border-top: 1px solid #cccccc
   font-size: 12px
   height: 120px
   padding: 40px 0

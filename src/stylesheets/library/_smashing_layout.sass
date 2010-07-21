@@ -1,38 +1,38 @@
-!direction ||= "right"
-!max_width ||= 1650px
-!min_width ||= 1000px
-!divine_proportion = !min_width / 1.62
-!width ||= 95%
-!sidebar_width ||= !min_width - !divine_proportion
-!negative_sidebar_width = -!sidebar_width
+$direction: right !default
+$max_width: 1650px !default
+$min_width: 1000px !default
+$divine_proportion: $min_width / 1.62
+$width: 95% !default
+$sidebar_width: $min_width - $divine_proportion !default
+$negative_sidebar_width: -$sidebar_width
 
-=smashing_layout(!direction = !direction)
+=smashing_layout($direction: $direction)
   +smashing_width
-  +smashing_padding(!direction)
-  +smashing_columns(!direction)
+  +smashing_padding($direction)
+  +smashing_columns($direction)
 
 =smashing_width
   width: 100%
   .max_width
     margin: 0 auto
-    max-width: #{!max_width}
+    max-width: #{$max_width}
   .min_width
     +pie-clearfix
     margin: 0 auto
-    min-width: #{!min_width}
-    width: #{!width}
+    min-width: #{$min_width}
+    width: #{$width}
 
-=smashing_padding(!direction)
+=smashing_padding($direction)
   .padding
-    @if !direction == "right"
-      padding-right: #{!sidebar_width}
+    @if $direction == "right"
+      padding-right: #{$sidebar_width}
     @else
-      padding-left: #{!sidebar_width}
+      padding-left: #{$sidebar_width}
     width: auto
 
-=smashing_columns(!direction)
+=smashing_columns($direction)
   .column
-    @if !direction == "right"
+    @if $direction == "right"
       float: left
     @else
       float: right
@@ -40,8 +40,8 @@
     &#primary
       width: 100%
     &#secondary
-      @if !direction == "right"
-        margin-right: #{!negative_sidebar_width}
+      @if $direction == "right"
+        margin-right: #{$negative_sidebar_width}
       @else
-        margin-left: #{!negative_sidebar_width}
-      width: #{!sidebar_width}
+        margin-left: #{$negative_sidebar_width}
+      width: #{$sidebar_width}
