@@ -1,6 +1,6 @@
 require 'compass'
 
-Compass.configuration.parse('config.rb')
+Compass.add_project_configuration('config.rb')
 configuration.sass_options = Compass.sass_engine_options
 
 configuration.preview_server_port = 3000
