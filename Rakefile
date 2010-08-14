@@ -1,5 +1,5 @@
-ssh_user = "user@domain.com" # for rsync deployment
-remote_root = "~/path/to/remote/" # for rsync deployment
+ssh_user = "web20show.com@s81290.gridserver.com" # for rsync deployment
+remote_root = "domains/smashinglayout.com/html/" # for rsync deployment
 
 desc "Runs preview"
 task :preview do

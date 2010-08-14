@@ -1,0 +1,69 @@
+// Configuration
+$direction: right !default;
+$max-width: 1400px !default;
+$min-width: 1250px !default;
+
+// Smashing Layout logic
+$divine-proportion: $min-width / 1.62;
+$width: 95%;
+$sidebar-width: floor($min-width - $divine-proportion);
+$negative-sidebar-width: - ceil($sidebar-width);
+
+// Creates the Smashing Layout.
+// IMPORTANT: This assumes the following markup structure to create the layout
+//
+// <div id="your-id">
+//   <div class="max-width">
+//     <div class="min-width">
+//       <div class="primary column">
+//          ...
+//       </div>
+//       <div class="secondary column">
+//          ...
+//       </div>
+//     </div>
+//   </div>
+// </div>
+@mixin smashing-layout($direction: $direction) {
+  @include smashing-width;
+  @include smashing-padding($direction);
+  @include smashing-columns($direction); }
+
+// Used to sett a div's width to behave like the width of +smashing-layout
+// Assumes 2 inner wrapping div's: .max-width and .min-width
+@mixin smashing-width {
+  width: 100%;
+  .max-width {
+    margin: 0 auto;
+    max-width: $max-width; }
+  .min-width {
+    @include clearfix;
+    margin: 0 auto;
+    min-width: $min-width;
+    width: $width; } }
+
+// Used only in +smashing-layout
+@mixin smashing-padding($direction) {
+  .padding {
+    @if $direction == right {
+      padding-right: $sidebar-width; }
+    @else {
+      padding-left: $sidebar-width; }
+    width: auto; } }
+
+// Used only in +smashing-layout
+@mixin smashing-columns($direction) {
+  .column {
+    @if $direction == right {
+      float: left; }
+    @else {
+      float: right; }
+    position: relative;
+    &.primary {
+      width: 100%; }
+    &.secondary {
+      @if $direction == right {
+        margin-right: $negative-sidebar-width; }
+      @else {
+        margin-left: $negative-sidebar-width; }
+      width: $sidebar-width; } } }
