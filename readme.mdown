@@ -1,3 +1,0 @@
-# Smashing Layout
-
-An experiment of Sass proportions!
