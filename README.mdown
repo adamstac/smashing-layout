@@ -1,10 +1,10 @@
 # Smashing Layout
 
-A Sass experiment turned Compass extension of Sass proportions!
+A Sass experiment to recreate Smashing Magazine's layout (circa 2009) turned Compass extension.
 
 ## Installation
 
-...
+You will need to install this to your specified Compass extensions directory. See the Compass documentation on extensions for more details: http://compass-style.org/docs/tutorials/extensions/
 
 ## License
 
