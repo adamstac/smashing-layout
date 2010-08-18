@@ -4,7 +4,11 @@ A Sass experiment to recreate Smashing Magazine's layout (circa 2009) turned Com
 
 ## Installation
 
-You will need to install this to your specified Compass extensions directory. See the Compass documentation on extensions for more details: http://compass-style.org/docs/tutorials/extensions/
+You will need to install this to your specified Compass extensions directory. See the Compass documentation on extensions for more details: [http://compass-style.org/docs/tutorials/extensions/](http://compass-style.org/docs/tutorials/extensions/)
+
+## Usage
+
+...
 
 ## License
 
