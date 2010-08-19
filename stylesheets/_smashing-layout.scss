@@ -47,6 +47,7 @@ $negative-sidebar-width: - ceil($sidebar-width);
 // Used only in +smashing-layout
 @mixin smashing-padding($direction) {
   .padding {
+    @include pie-clearfix;
     @if $direction == right {
       padding-right: $sidebar-width; }
     @else {
