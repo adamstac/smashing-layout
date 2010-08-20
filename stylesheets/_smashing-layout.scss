@@ -39,7 +39,7 @@ $negative-sidebar-width: - ceil($sidebar-width);
     margin: 0 auto;
     max-width: $max-width; }
   .min-width {
-    @include clearfix;
+    @include pie-clearfix;
     margin: 0 auto;
     min-width: $min-width;
     width: $width; } }
