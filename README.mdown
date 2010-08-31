@@ -4,15 +4,19 @@ A Sass experiment to recreate Smashing Magazine's layout (circa 2009) turned Com
 
 ## Installation
 
-You will need to install this to your specified Compass extensions directory. See the Compass documentation on extensions for more details: [http://compass-style.org/docs/tutorials/extensions/](http://compass-style.org/docs/tutorials/extensions/)
+## Installation
+
+`sudo gem install smashing-layout`
+
+Add `require 'smashing-layout'` to your Compass config file.
 
 ## Usage
 
 There are two mixins that produce all the magic in Smashing Layout.
 
-### +smashing-layout
+### `@include smashing-layout`
 
-The `+smashing-layout` mixin setups the core layout based on the default variable configuration or your overrides.
+The `smashing-layout` mixin setups the core layout based on the default variable configuration or your overrides.
 
 Here is the default configuration of Smashing Layout. If you plan to override this, be sure to do so above the import of smashing-layout.
 
@@ -38,9 +42,9 @@ This assumes the following markup structure to create the layout.
       </div>
     </div>
     
-### +smashing-width
+### `@include smashing-width`
 
-The `+smashing-width` mixin setups the just the width with no columns based on the default variable configuration or your overrides. This is needed for headers and footers and other parts of your layout that need to be set to the same width as your main content area that you've applied `+smashing-layout` to.
+The `smashing-width` mixin setups the just the width with no columns based on the default variable configuration or your overrides. This is needed for headers and footers and other parts of your layout that need to be set to the same width as your main content area that you've applied `smashing-layout` to.
 
 This assumes the following markup structure to apply the smashing-width.
 
