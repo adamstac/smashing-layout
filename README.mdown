@@ -1,12 +1,10 @@
 # Smashing Layout
 
-A Sass experiment to recreate Smashing Magazine's layout (circa 2009) turned Compass extension.
+The Sass Way to recreate Smashing Magazine's layout (circa 2009).
 
 ## Installation
 
-## Installation
-
-`sudo gem install smashing-layout`
+`gem install smashing-layout`
 
 Add `require 'smashing-layout'` to your Compass config file.
 
@@ -14,47 +12,38 @@ Add `require 'smashing-layout'` to your Compass config file.
 
 There are two mixins that produce all the magic in Smashing Layout.
 
-### `@include smashing-layout`
+### The `smashing-layout` mixin
 
-The `smashing-layout` mixin setups the core layout based on the default variable configuration or your overrides.
+The `smashing-layout` mixin sets up the core layout based on the default variable configuration or your overrides.
 
 Here is the default configuration of Smashing Layout. If you plan to override this, be sure to do so above the import of smashing-layout.
 
     // Configuration
-    $direction: right !default
-    $max-width: 1400px !default
-    $min-width: 1250px !default
+    $direction: right
+    $max-width: 1200px
+    $min-width: 900px
 
 This assumes the following markup structure to create the layout.
 
-    <div id="your-id">
-      <div class="max-width">
-        <div class="min-width">
-          <div class="padding">
-            <div class="primary column">
-              ...
-            </div>
-            <div class="secondary column">
-              ...
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    #your-id
+      .max-width
+        .min-width
+          .padding
+            .primary.column
+               ...
+            .secondary.column
+               ...
     
-### `@include smashing-width`
+### The `smashing-width` mixin
 
-The `smashing-width` mixin setups the just the width with no columns based on the default variable configuration or your overrides. This is needed for headers and footers and other parts of your layout that need to be set to the same width as your main content area that you've applied `smashing-layout` to.
+The `smashing-width` mixin sets up just the width with no columns based on the default variable configuration or your overrides. This is needed for headers and footers and other parts of your layout that need to be set to the same width as your main content areas where you've used the `smashing-layout` mixin.
 
 This assumes the following markup structure to apply the smashing-width.
 
-    <div id="your-id">
-      <div class="max-width">
-        <div class="min-width">
+    #your-id
+      .max-width
+        .min-width
           ...
-        </div>
-      </div>
-    </div>
 
 ## License
 
