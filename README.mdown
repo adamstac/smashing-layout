@@ -19,11 +19,22 @@ The `smashing-layout` mixin sets up the core layout based on the default variabl
 Here is the default configuration of Smashing Layout. If you plan to override this, be sure to do so above the import of smashing-layout.
 
     // Configuration
-    $direction: right
-    $max-width: 1200px
-    $min-width: 900px
+    $smashing-direction: right
+    $smashing-max-width: 1200px
+    $smashing-min-width: 900px
+    $smashing-support-ie6: false
 
-This assumes the following markup structure to create the layout.
+The following markup structure is needed to create the Smashing Layout.
+
+    #your-id
+      .max-width
+        .padding
+          .primary.column
+             ...
+          .secondary.column
+             ...
+
+If you have set the variable `$smashing-support-ie6` to `true` (set to `false` by default), the following markup structure is needed to create the Smashing Layout.
 
     #your-id
       .max-width

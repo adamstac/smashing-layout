@@ -1,49 +1,61 @@
 @import compass/utilities
 
 // Configuration
-$direction: right !default
-$max-width: 1200px !default
-$min-width: 900px !default
+$smashing-direction: right !default
+$smashing-max-width: 1200px !default
+$smashing-min-width: 900px !default
+$smashing-support-ie6: false !default
 
-// Smashing Layout logic
-$divine-proportion: $min-width / 1.62
-$width: 95%
-$sidebar-width: floor($min-width - $divine-proportion)
-$negative-sidebar-width: -(ceil($sidebar-width))
+// Layout logic variables
+$smashing-divine-proportion: $smashing-min-width / 1.62
+$smashing-width: 95%
+$smashing-sidebar-width: floor($smashing-min-width - $smashing-divine-proportion)
+$smashing-negative-sidebar-width: -(ceil($smashing-sidebar-width))
 
-=smashing-layout($direction)
+=smashing-layout($smashing-direction)
   +smashing-width
-  +smashing-padding($direction)
-  +smashing-columns($direction)
+  +smashing-padding($smashing-direction)
+  +smashing-columns($smashing-direction)
 
 // Sets a div's width to behave like the width of +smashing-layout
 // Assumes 2 inner wrapping div's .max-width and .min-width
 =smashing-width
   width: 100%
-  .max-width
-    +pie-clearfix
-    margin: 0 auto
-    min-width: $min-width
-    max-width: $max-width
-    width: $width
+  @if $smashing-support-ie6
+    .max-width
+      margin: 0 auto
+      max-width: $smashing-max-width
+      width: $smashing-width
+    .min-width
+      +pie-clearfix
+      margin: 0 auto
+      min-width: $smashing-min-width
+      width: $smashing-width
+  @else
+    .max-width
+      +pie-clearfix
+      margin: 0 auto
+      min-width: $smashing-min-width
+      max-width: $smashing-max-width
+      width: $smashing-width
 
 // Used only in +smashing-layout
-=smashing-padding($direction)
+=smashing-padding($smashing-direction)
   .padding
     +pie-clearfix
-    padding-#{$direction}: $sidebar-width
+    padding-#{$smashing-direction}: $smashing-sidebar-width
     width: auto
 
 // Used only in +smashing-layout
-=smashing-columns($direction)
+=smashing-columns($smashing-direction)
   .column
-    @if $direction == right
+    @if $smashing-direction == right
       float: left
-    @else if $direction == left
+    @else if $smashing-direction == left
       float: right
     position: relative
     &.primary
       width: 100%
     &.secondary
-      margin-#{$direction}: $negative-sidebar-width
-      width: $sidebar-width
+      margin-#{$smashing-direction}: $smashing-negative-sidebar-width
+      width: $smashing-sidebar-width
