@@ -1,7 +1,4 @@
-source 'http://rubygems.org'
+source :rubygems
 
-# Source: https://github.com/nex3/haml
-gem "haml", "~> 3.0.25"
-
-# Source: https://github.com/chriseppstein/compass
-gem "compass", "~> 0.10.6"
+gem "rake"
+gem "compass", "~> 0.11.5"

@@ -1,61 +1,61 @@
-@import "compass/utilities";
+@import "compass";
 
 // Configuration
 $smashing-direction: right !default;
-$smashing-max-width: 1200px !default;
-$smashing-min-width: 900px !default;
-$smashing-support-ie6: false !default;
+$smashing-max-width: 1100px !default;
+$smashing-min-width: 960px !default;
+$smashing-cushion: 0 2.5% !default;
+$smashing-devine: false !default;
 
-// Layout logic variables
+// Layout variables
 $smashing-divine-proportion: $smashing-min-width / 1.62;
-$smashing-width: 95%;
-$smashing-sidebar-width: floor($smashing-min-width - $smashing-divine-proportion);
+$smashing-sidebar-width: 400px;
+$smashing-sidebar-width-divine: floor($smashing-min-width - $smashing-divine-proportion);
 $smashing-negative-sidebar-width: -(ceil($smashing-sidebar-width));
+$smashing-negative-sidebar-width-divine: -(ceil($smashing-sidebar-width-divine));
 
-@mixin smashing-layout($smashing-direction) {
+@mixin smashing-layout {
   @include smashing-width;
-  @include smashing-padding($smashing-direction);
-  @include smashing-columns($smashing-direction); }
+  @include smashing-padding;
+  @include smashing-columns; }
 
 // Sets a div's width to behave like the width of +smashing-layout
-// Assumes 2 inner wrapping div's .max-width and .min-width
+// Assumes an inner wrapping div .width
 @mixin smashing-width {
-  width: 100%;
-  @if $smashing-support-ie6 {
-    .max-width {
-      margin: 0 auto;
-      max-width: $smashing-max-width;
-      width: $smashing-width; }
-    .min-width {
-      @include pie-clearfix;
-      margin: 0 auto;
-      min-width: $smashing-min-width;
-      width: $smashing-width; } }
-  @else {
-    .max-width {
-      @include pie-clearfix;
-      margin: 0 auto;
-      min-width: $smashing-min-width;
-      max-width: $smashing-max-width;
-      width: $smashing-width; } } }
-
-// Used only in +smashing-layout
-@mixin smashing-padding($smashing-direction) {
-  .padding {
+  & {
+    width: 100%; }
+  .width {
     @include pie-clearfix;
-    padding-#{$smashing-direction}: $smashing-sidebar-width;
-    width: auto; } }
+    margin: 0 auto;
+    min-width: $smashing-min-width;
+    max-width: $smashing-max-width;
+    padding: $smashing-cushion; } }
 
 // Used only in +smashing-layout
-@mixin smashing-columns($smashing-direction) {
+@mixin smashing-padding {
+  .padding {
+    @include box-sizing(border-box);
+    @include pie-clearfix;
+    @if $smashing-devine {
+      padding-#{$smashing-direction}: $smashing-sidebar-width-divine; }
+    @else {
+      padding-#{$smashing-direction}: $smashing-sidebar-width; }
+    width: 100%; } }
+
+// Used only in +smashing-layout
+@mixin smashing-columns {
   .column {
+    @include box-sizing(border-box);
     @if $smashing-direction == right {
-      float: left; }
-    @else if $smashing-direction == left {
-      float: right; }
-    position: relative;
-    &.primary {
-      width: 100%; }
-    &.secondary {
+      @include float-left; }
+    @else {
+      @include float-right; } }
+  .primary {
+    width: 100%; }
+  .secondary {
+    @if $smashing-devine {
+      margin-#{$smashing-direction}: $smashing-negative-sidebar-width-divine;
+      width: $smashing-sidebar-width-divine; }
+    @else {
       margin-#{$smashing-direction}: $smashing-negative-sidebar-width;
       width: $smashing-sidebar-width; } } }

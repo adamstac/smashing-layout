@@ -1,9 +1,8 @@
-require 'rubygems'
-require 'bundler/setup'
+require "rubygems"
+require "bundler"
+Bundler.setup
 
-Bundler.require(:default)
-
-require 'lib/smashing-layout'
+require './lib/smashing-layout'
 
 namespace :sass do
 
