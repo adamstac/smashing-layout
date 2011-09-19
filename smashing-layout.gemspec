@@ -1,4 +1,4 @@
-require 'lib/smashing-layout'
+require './lib/smashing-layout'
 
 Gem::Specification.new do |s|
   # Release Specific Information

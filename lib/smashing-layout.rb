@@ -3,7 +3,7 @@ Compass::Frameworks.register("smashing-layout", :path => "#{File.dirname(__FILE_
 
 module SmashingLayout
   
-  VERSION = "0.0.4".freeze
-  DATE = "2011-9-19".freeze
+  VERSION = "0.0.4"
+  DATE = "2011-09-19"
 
 end
