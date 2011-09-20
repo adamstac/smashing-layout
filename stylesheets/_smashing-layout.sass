@@ -17,7 +17,7 @@ $smashing-negative-sidebar-width-divine: -(ceil($smashing-sidebar-width-divine))
 =smashing-layout
   +smashing-width
   +smashing-padding
-  +smashing-columns
+  +smashing-content
 
 // Sets a div's width to behave like the width of +smashing-layout
 // Assumes an inner wrapping div .width
@@ -43,7 +43,7 @@ $smashing-negative-sidebar-width-divine: -(ceil($smashing-sidebar-width-divine))
     width: 100%
 
 // Used only in +smashing-layout
-=smashing-columns
+=smashing-content
   .primary, .secondary
     +box-sizing(border-box)
     @if $smashing-direction == right
