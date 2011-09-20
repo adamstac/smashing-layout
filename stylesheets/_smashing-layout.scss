@@ -44,7 +44,7 @@ $smashing-negative-sidebar-width-divine: -(ceil($smashing-sidebar-width-divine))
 
 // Used only in +smashing-layout
 @mixin smashing-columns {
-  .column {
+  .primary, .secondary {
     @include box-sizing(border-box);
     @if $smashing-direction == right {
       @include float-left; }
