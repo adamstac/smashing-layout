@@ -1,64 +1,90 @@
 # Smashing Layout
 
-The Sass Way to recreate Smashing Magazine's layout (circa 2009).
+A Sass project that began as an experiment to recreate Smashing Magazine's layout (circa 2009).
 
 ## Installation
 
-`gem install smashing-layout`
+`(sudo) gem install smashing-layout`
 
 Add `require 'smashing-layout'` to your Compass config file.
 
 ## Usage
 
-There are two mixins that produce all the magic in Smashing Layout.
+There are two mixins that produce all the magic in Smashing Layout. The `smashing-layout` mixin and the `smashing-width` mixin. I'll cover those in more detail below. But in the meantime, here are the details for the default variables and how to override them.
 
-### The `smashing-layout` mixin
+### Default variables
 
 The `smashing-layout` mixin sets up the core layout based on the default variable configuration or your overrides.
 
-Here is the default configuration of Smashing Layout. If you plan to override this, be sure to do so above the import of smashing-layout.
+The default configuration of Smashing Layout is listed below. If you plan to override any of these values, do so prior to importing smashing-layout.
 
     // Configuration
     $smashing-direction: right
     $smashing-max-width: 1200px
-    $smashing-min-width: 900px
-    $smashing-support-ie6: false
-
-The following markup structure is needed to create the Smashing Layout.
-
-    #your-id
-      .max-width
-        .padding
-          .primary.column
-             ...
-          .secondary.column
-             ...
-
-If you have set the variable `$smashing-support-ie6` to `true` (set to `false` by default), the following markup structure is needed to create the Smashing Layout.
-
-    #your-id
-      .max-width
-        .min-width
-          .padding
-            .primary.column
-               ...
-            .secondary.column
-               ...
+    $smashing-min-width: 960px
+    $smashing-cushion: 2.5%
+    $smashing-devine: false
     
-### The `smashing-width` mixin
+Import Smashing Layout from the extension, like so:
 
-The `smashing-width` mixin sets up just the width with no columns based on the default variable configuration or your overrides. This is needed for headers and footers and other parts of your layout that need to be set to the same width as your main content areas where you've used the `smashing-layout` mixin.
+    @import smashing-layout
 
-This assumes the following markup structure to apply the smashing-width.
+### Overriding the default variables
 
-    #your-id
-      .max-width
-        .min-width
-          ...
+A proper example of overriding the default variables would look something like this.
+
+The code below assumes you are keeping the default max and min width, but you'd like to set the sidebar to display on the left vs the default setting of displaying on the right. It also assumes you'd like a bit more cushion on the outside of the layout by setting the `$smashing-cushion`, and sets the left and right padding on the `.width` selector to 5% each vs the default of 2.5%.
+
+    // Configuration
+    $smashing-direction: left
+    $smashing-cushion: 5%
+    @import smashing-layout
+
+
+### Assumed markup and selectors
+
+The following markup and selector structure is assumed to create the two-column Smashing Layout.
+
+    .your-class
+      .width
+        .padding
+          .primary
+             ...
+          .secondary
+             ...
+
+I realize this means you are using more presentational selector names in your markup, but that doesn't mean you can't combine those class names with HTML5 elements.
+
+## Smashing Mixins
+
+There are two mixins to use when using Smashing Layout.
+
+* `smashing-layout`, which takes care of creating the layout
+* `smashing-width`, which sets up just the width for keeping sections of the design outside the layout the same flexible width
+
+### `smashing-layout`
+
+Assumes the following markup and selector structure to work.
+
+    .your-class
+      .width
+        .padding
+          .primary
+             ...
+          .secondary
+             ...
+
+### `smashing-width`
+
+Assumes the following markup and selector structure to work.
+
+    .your-class
+      .width
+        ...
 
 ## License
 
-Copyright (c) 2009 Adam Stacoviak
+Copyright (c) 2009-2011 Adam Stacoviak
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

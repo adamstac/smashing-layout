@@ -2,9 +2,9 @@
 
 // Configuration
 $smashing-direction: right !default;
-$smashing-max-width: 1100px !default;
+$smashing-max-width: 1200px !default;
 $smashing-min-width: 960px !default;
-$smashing-cushion: 0 2.5% !default;
+$smashing-cushion: 2.5% !default;
 $smashing-devine: false !default;
 
 // Layout variables
@@ -17,7 +17,7 @@ $smashing-negative-sidebar-width-divine: -(ceil($smashing-sidebar-width-divine))
 @mixin smashing-layout {
   @include smashing-width;
   @include smashing-padding;
-  @include smashing-columns; }
+  @include smashing-content; }
 
 // Sets a div's width to behave like the width of +smashing-layout
 // Assumes an inner wrapping div .width
@@ -29,7 +29,9 @@ $smashing-negative-sidebar-width-divine: -(ceil($smashing-sidebar-width-divine))
     margin: 0 auto;
     min-width: $smashing-min-width;
     max-width: $smashing-max-width;
-    padding: $smashing-cushion; } }
+    padding: {
+      right: $smashing-cushion;
+      left: $smashing-cushion; }; } }
 
 // Used only in +smashing-layout
 @mixin smashing-padding {
@@ -43,7 +45,7 @@ $smashing-negative-sidebar-width-divine: -(ceil($smashing-sidebar-width-divine))
     width: 100%; } }
 
 // Used only in +smashing-layout
-@mixin smashing-columns {
+@mixin smashing-content {
   .primary, .secondary {
     @include box-sizing(border-box);
     @if $smashing-direction == right {
